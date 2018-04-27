@@ -112,9 +112,9 @@ error(const char* t1, const char* fmt, ...)
 void
 fatal_error(const char* t1, const char* t2)
   /*prints fatal error message, halts program */
-{
+{char *ret;
   fprintf(stderr, "+=+=+= fatal: %s %s\n",t1,t2);
-  if (get_option("no_fatal_stop ")==0) exit(1);
+  if (get_option("no_fatal_stop ")==0) pthread_exit(NULL);
 }
 
 void
