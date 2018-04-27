@@ -32,21 +32,9 @@ void g95_runtime_start (int, char *[]);
 void g95_runtime_stop  (void);
 #endif
 
-#ifdef _LF95
-// Lahey f95 specific (requires main to be MAIN__)
-int MAIN__(void);
-int MAIN__(void)
-{
-  mad_init(0, 0);
-
-#else
-
-int
-main(int argc, char *argv[])
+int mad_start(int argc, char *argv[])
 {
   mad_init(argc, argv);
-
-#endif // _LF95
 
   mad_run ();
   mad_fini();

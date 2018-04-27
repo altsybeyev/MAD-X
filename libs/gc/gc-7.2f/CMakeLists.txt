@@ -230,7 +230,7 @@ IF(WIN32)
   TARGET_LINK_LIBRARIES(cord gdi32)
 ENDIF(WIN32)
 
-ADD_SUBDIRECTORY(tests)
+#ADD_SUBDIRECTORY(tests)
 
 # TG: The static libmadx.a archive doesn't contain GC symbols needed to link
 # for 3rdparty applications. Therefore, ship libgc-lib.a  alongside libmadx.a:

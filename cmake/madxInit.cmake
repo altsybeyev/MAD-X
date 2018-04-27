@@ -20,7 +20,7 @@ else()
 endif()
 
 # project version
-file(READ ${CMAKE_SOURCE_DIR}/VERSION VERSION_INFO)
+file(READ ${CMAKE_CURRENT_SOURCE_DIR}/VERSION VERSION_INFO)
 string(REGEX MATCH "VERSION *= *[0-9]+.[0-9]+.[0-9]+" MADX_VERSION  ${VERSION_INFO})
 string(REGEX REPLACE "VERSION *= *" "" MADX_VERSION ${MADX_VERSION})
 # split version in major/minor/patch_level:

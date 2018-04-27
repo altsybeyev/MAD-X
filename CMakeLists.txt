@@ -23,11 +23,11 @@ if(COMMAND cmake_policy)
 endif()
 
 # add source dir as a place for CMake modules (e.g. FindGSL.cmake)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake") 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake") 
 
 # When we don't need to support cmake <2.8.3 anymore, remove these three lines:
 if(CMAKE_VERSION VERSION_LESS "2.8.3")
-    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/compilers") 
+    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/compilers") 
 endif()
 
 # Some initializations specific for Mad-X
@@ -53,6 +53,8 @@ include(setupCompilerSpecifics)
 # architecture chosen.
 include(setupArchSpecifics)
 
+include_directories(libs/gc/gc-7.2f/include)
+
 
 # Add sources subdirectory:
 add_subdirectory(libs/ptc)
@@ -65,8 +67,3 @@ add_subdirectory(doc)
 
 # External projects...
 include(setupExternalProjects)
-
-# Setting up testing:
-include(setupTesting)
-# Add test folders:
-include(ndifftests)

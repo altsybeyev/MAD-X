@@ -18,7 +18,7 @@ if(MADX_STATIC)
        message(FATAL_ERROR "Cannot build shared libs with MADX_STATIC on")
     endif()
     if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-       link_directories(${CMAKE_SOURCE_DIR}/lib${ARCH}/)    # for libX11.a
+       link_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib${ARCH}/)    # for libX11.a
     endif()
 endif()
 
@@ -31,7 +31,7 @@ endif()
 # then if MADX_ONLINE is on without sdds found, we throw fatal error.
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    set(SDDS_SEARCH_DIRS  ${CMAKE_SOURCE_DIR}/lib${ARCH}/)
+    set(SDDS_SEARCH_DIRS  ${CMAKE_CURRENT_SOURCE_DIR}/lib${ARCH}/)
 endif()
 find_package(SDDS)
 

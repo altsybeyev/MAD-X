@@ -41,7 +41,7 @@ list(REMOVE_ITEM src_files ${remove_list})
 file(GLOB headerfiles *.h)
 
 # adding library:
-add_library(madx ${src_files})
+add_library(madx mad_main.c ${src_files})
 
 target_link_libraries(madx ptc)
 
@@ -57,20 +57,6 @@ set_target_properties(madx PROPERTIES LINKER_LANGUAGE Fortran)
 set_target_properties(madx     PROPERTIES VERSION ${MADX_VERSION})
 set_target_properties(madx     PROPERTIES CXX_STANDARD 11)
 
-
-# adding an executable:
-if(MADX_BUNDLE)
-   add_executable(madxbin MACOSX_BUNDLE  ${main_file})
-else()
-   add_executable(madxbin ${main_file})
-endif()
-set_target_properties(madxbin PROPERTIES LINKER_LANGUAGE Fortran VERSION ${MADX_VERSION})
-
-# we want to add _dev to the binary in case this is a dev version for the automatic packaging...
-set_target_properties(madxbin PROPERTIES OUTPUT_NAME "madx${BINARY_POSTFIX}")
-
-# we need to link executable to our own library:
-target_link_libraries(madxbin madx)
 
 # I turn off search for libraries in case you are on Linux,
 # to make sure we make use of the lib/lib64 folders
@@ -103,7 +89,7 @@ target_link_libraries(madx  ${CMAKE_THREAD_LIBS_INIT} ${STDCPP_LIBS})
 
 # Garbage collector:
 if(USE_GC)
-   include_directories(${CMAKE_SOURCE_DIR}/libs/gc/gc-7.2f/include)
+   include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/gc/gc-7.2f/include)
 endif()
 
 # Defining specific stuff for packaging:
@@ -116,4 +102,3 @@ include(setupPackaging)
 #
 # Should be called after targets are defined
 #
-include(setupInstallation)

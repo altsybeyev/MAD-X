@@ -17,7 +17,7 @@ install(
     COMPONENT Files)
 
 install(
-    FILES ${CMAKE_SOURCE_DIR}/License.txt
+    FILES ${CMAKE_CURRENT_SOURCE_DIR}/License.txt
     DESTINATION "share/doc/${PROJECT_NAME}${PKG_POSTFIX}"
     COMPONENT Files)
 
@@ -34,7 +34,7 @@ endif()
 
 # CPACK stuff
  # build a CPack driven installer package
- set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/License.txt")
+ set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
  set (CPACK_PACKAGE_NAME "${PROJECT_NAME}${PKG_POSTFIX}")
  # Version:
  set (CPACK_PACKAGE_VERSION_MAJOR ${MADX_MAJOR_VERSION})
