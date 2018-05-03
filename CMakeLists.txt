@@ -7,6 +7,8 @@
 # after cmake 2.8.4 it's normally zero when using
 # cygwin.
 set(CMAKE_LEGACY_CYGWIN_WIN32 0)
+SET(USE_GC OFF)
+add_compile_options(-fPIC)
 
 cmake_minimum_required(VERSION 2.8)
 
@@ -38,6 +40,7 @@ include(setupOptions)
 
 # We add libraries before setting up compilers because
 # some of our options are incompatible with e.g. GC
+
 if(USE_GC)
    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
    add_subdirectory(libs/gc/gc-7.2f)
