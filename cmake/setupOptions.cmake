@@ -2,7 +2,7 @@
 
 option( MADX_STATIC "Turn on for static linking" OFF)
 option( MADX_DEBUG "Turn on debug output" OFF)
-option( USE_GC "Use Garbage Collector" ON)
+option( USE_GC "Use Garbage Collector" OFF)
 option( MADX_NTPSA "Build with NTPSA" ON)
 option( MADX_FORCE_32 "Force 32bit build" OFF)
 
