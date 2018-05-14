@@ -43,7 +43,7 @@ include(setupOptions)
 
 if(USE_GC)
    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-   add_subdirectory(libs/gc/gc-7.2f)
+  #  add_subdirectory(libs/gc/gc-7.2f)
 endif()
 
 # 
